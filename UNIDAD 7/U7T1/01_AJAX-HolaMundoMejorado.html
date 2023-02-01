@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hola mundo con AJAX mejorado</title>
+    <script>
+      let READY_STATE_COMPLETE = 4;
+      let HTTP_STATUS_OK = 200;
+
+      let peticion_http;
+
+      window.onload = boton;
+
+      function carga_contenido() {
+        if (window.XMLHttpRequest) {
+          peticion_http = new XMLHttpRequest();
+        } else {
+          alert("No tienes soporte para AJAX");
+          return; // Salimos y no hacemos la petición
+        }
+
+        // Preparamos la petición
+        if (peticion_http) {
+          const URL = "http://localhost:8090/UNIDAD 7/U7T1/holamundo.txt";
+          // en la petición, me suscribo al evento "ReadyStateChange", y le
+          // digo que me llame a muestra_contenido cada vez que suceda (que cambie el estado)
+          peticion_http.onreadystatechange = muestra_contenido;
+          peticion_http.open("GET", URL, true);
+          peticion_http.send();
+        }
+      }
+
+      function muestra_contenido() {
+        if (peticion_http.readyState === READY_STATE_COMPLETE) {
+          if (peticion_http.status === HTTP_STATUS_OK) {
+            let textArea = document.getElementById("textArea");
+            console.log(peticion_http.responseText);
+            textArea.value = peticion_http.responseText;
+            console.log(peticion_http.responseText);
+          }
+        }
+      }
+
+      function boton() {
+        let boton = document.getElementById("boton");
+        boton.addEventListener("click", carga_contenido);
+
+        let campoTexto = document.getElementById("campoTexto");
+        campoTexto.value = window.location;
+      }
+    </script>
+  </head>
+
+  <body>
+    <form action="">
+      <input type="text" name="campoTexto" id="campoTexto" />
+      <button id="boton" type="button">Mostrar Contenido</button>
+      <br />
+      <br />
+      <textarea name="textArea" id="textArea" cols="30" rows="10"></textarea>
+    </form>
+  </body>
+</html>
