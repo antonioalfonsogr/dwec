@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<series>
+
+    <serie>
+        <titulo>ER Urgencias</titulo>
+        <cadena>NBC</cadena>
+        <director>Michael Crichton</director>
+        <year>1994</year>
+        <terminada>Si</terminada>
+    </serie>
+
+    <serie>
+        <titulo>Breaking Bad</titulo>
+        <cadena>AMC</cadena>
+        <director>Vince Gilligan</director>
+        <year>2008</year>
+        <terminada>Si</terminada>
+    </serie>
+
+    <serie>
+        <titulo>Bridgerton</titulo>
+        <cadena>Netflix</cadena>
+        <director>Chris Van Dusen</director>
+        <year>2020</year>
+        <terminada>No</terminada>
+    </serie>
+
+    <serie>
+        <titulo>The Last of Us</titulo>
+        <cadena>HBO</cadena>
+        <director>Craig Mazin y Neil Druckmann</director>
+        <year>2023</year>
+        <terminada>No</terminada>
+    </serie>
+
+</series>   

@@ -5,6 +5,11 @@ let peticion_http;
 
 window.onload = boton;
 
+function boton() {
+  let boton = document.getElementById("boton");
+  boton.addEventListener("click", carga_contenido);
+}
+
 function carga_contenido() {
   if (window.XMLHttpRequest) {
     peticion_http = new XMLHttpRequest();
@@ -15,7 +20,7 @@ function carga_contenido() {
 
   // Preparamos la petición
   if (peticion_http) {
-    const texto = document.getElementById("texto");
+    let texto = document.getElementById("texto").value;
     // en la petición, me suscribo al evento "ReadyStateChange", y le
     // digo que me llame a muestra_contenido cada vez que suceda (que cambie el estado)
     peticion_http.onreadystatechange = muestra_contenido;
@@ -27,7 +32,7 @@ function carga_contenido() {
 function muestra_contenido() {
   if (peticion_http.readyState === READY_STATE_COMPLETE) {
     if (peticion_http.status === HTTP_STATUS_OK) {
-      let resultado = documet.getElementById("resultado");
+      let resultado = document.getElementById("resultado");
       resultado.innerHTML = peticion_http.responseText;
       console.log(peticion_http.responseText);
 
@@ -36,9 +41,4 @@ function muestra_contenido() {
         : (resultado.style.color = "red");
     }
   }
-}
-
-function boton() {
-  let boton = document.getElementById("boton");
-  boton.addEventListener("click", carga_contenido);
 }
