@@ -1,0 +1,32 @@
+{
+    "series": [
+        {
+            "titulo": "ER Urgencias",
+            "cadena": "NBC",
+            "director": "Michael Crichton",
+            "anyo": "1994",
+            "terminada": "Si"
+        },
+        {
+            "titulo": "Breaking Bad",
+            "cadena": "AMC",
+            "director": "Vince Gilligan",
+            "anyo": "2008",
+            "terminada": "Si"
+        },
+        {
+            "titulo": "Bridgerton",
+            "cadena": "Netflix",
+            "director": "Chris Van Dusen",
+            "anyo": "2020",
+            "terminada": "No"
+        },
+        {
+            "titulo": "The Last of Us",
+            "cadena": "HBO",
+            "director": "Craig Mazin y Neil Druckmann",
+            "anyo": "2023",
+            "terminada": "No"
+        }
+    ]
+}
