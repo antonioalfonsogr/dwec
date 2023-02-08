@@ -1,7 +1,7 @@
 let READY_STATE_COMPLETE = 4;
 let HTTP_STATUS_OK = 200;
-
 let peticion_http;
+let container = document.getElementById("container");
 
 window.onload = boton;
 
@@ -20,11 +20,10 @@ function carga_contenido() {
 
   // Preparamos la petición
   if (peticion_http) {
-    let texto = document.getElementById("texto").value;
     // en la petición, me suscribo al evento "ReadyStateChange", y le
     // digo que me llame a muestra_contenido cada vez que suceda (que cambie el estado)
     peticion_http.onreadystatechange = muestra_contenido;
-    peticion_http.open("GET", "series.xml", true);
+    peticion_http.open("GET", "./series.xml");
     peticion_http.send();
   }
 }
@@ -38,21 +37,23 @@ function muestra_contenido() {
   }
 }
 
-function crearTablaTab(xml) {
+function crearTabla(xml) {
   let contenedor = document.getElementById("container");
   let tabla = document.createElement("table");
   contenedor.appendChild(tabla);
 
-  let titulo = xml.getElementBytagName("titulo");
-  let cadena = xml.getElementBytagName("cadena");
-  let director = xml.getElementBytagName("director");
-  let year = xml.getElementBytagName("year");
-  let terminada = xml.getElementBytagName("terminada");
+  console.log(xml.getElementsBytagName("titulo"));
+
+  let titulo = xml.getElementsBytagName("titulo");
+  let cadena = xml.getElementsBytagName("cadena");
+  let director = xml.getElementsBytagName("director");
+  let anyo = xml.getElementsBytagName("anyo");
+  let terminada = xml.getElementsBytagName("terminada");
 
   crearColumna(titulo);
   crearColumna(cadena);
   crearColumna(director);
-  crearColumna(year);
+  crearColumna(anyo);
   crearColumna(terminada);
 }
 
