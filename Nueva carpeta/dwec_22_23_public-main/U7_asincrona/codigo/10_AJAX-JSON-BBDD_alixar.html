@@ -1,0 +1,52 @@
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Ajax con PHP y JSON</title>
+  <script>
+    window.addEventListener("load", inicio);
+
+    function inicio() {
+      document.getElementById("mostrar").addEventListener("click", mostrar);
+    }
+
+    function mostrar() {
+      let puntos = document.getElementById("puntuacion").value;
+      let objeto = {
+        tabla: "alumnos",
+        valor: parseInt(puntos),
+      };
+
+      let xhr = new XMLHttpRequest();
+      let txt = "";
+      xhr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          console.log(this.responseText);
+          let array = JSON.parse(this.responseText);
+          for (x in array) {
+            txt += array[x].alumno + " : " + array[x].puntuacion + "<br/>";
+          }
+          document.getElementById("texto").innerHTML = txt;
+        }
+      };
+      let parametros = JSON.stringify(objeto);
+      /*xhr.open("GET", "10_AJAX-JSON-BBDD.php?objeto=" + parametros, true);
+          xhr.send();*/
+      xhr.open("POST", "10_AJAX-JSON-BBDD_alixar.php", true);
+      xhr.setRequestHeader(
+        "Content-type",
+        "application/x-www-form-urlencoded"
+      );
+      xhr.send("objeto=" + parametros);
+    }
+  </script>
+</head>
+
+<body>
+  Puntuacion:
+  <input type="number" id="puntuacion" />
+  <button id="mostrar">Enviar</button>
+  <div id="texto" />
+</body>
+
+</html>

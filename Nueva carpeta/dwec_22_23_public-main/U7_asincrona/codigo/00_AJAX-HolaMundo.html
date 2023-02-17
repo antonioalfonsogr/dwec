@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>Hola mundo con AJAX</title>
+    <script>
+      window.onload = descarga_archivo;
+
+      function descarga_archivo() {
+        // Obtener la instancia del objeto XMLHttpRequest
+        if (window.XMLHttpRequest) {
+          peticion_http = new XMLHttpRequest();
+
+          // Indicamos a qué función se debe llamar cuando cambie el estado de la petición
+          peticion_http.onreadystatechange = muestra_contenido;
+          // Configuramos el método y la URL a la que vamos a hacer la petición
+          peticion_http.open(
+            "GET",
+            "http://localhost:8090/U7_asincrona/teoria/codigo/holamundo.txt"
+          );
+          // Realizar petición HTTP. Get sin envío de parámetros
+          peticion_http.send();
+        } else {
+          alert("No tienes soporte para AJAX");
+        }
+      }
+
+      function muestra_contenido() {
+        if (peticion_http.readyState === 4) {
+          // Ha recibido una respuesta...
+          if (peticion_http.status === 200) {
+            // ... y es válida y correcta
+            alert(peticion_http.responseText);
+          }
+        }
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

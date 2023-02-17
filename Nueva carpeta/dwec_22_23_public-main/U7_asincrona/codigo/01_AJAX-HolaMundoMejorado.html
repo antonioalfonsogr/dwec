@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Hola mundo con AJAX mejorado</title>
+		<script>
+			let READY_STATE_UNINITIALIZED = 0;
+			let READY_STATE_LOADING = 1;
+			let READY_STATE_LOADED = 2;
+			let READY_STATE_INTERACTIVE = 3;
+			let READY_STATE_COMPLETE = 4;
+
+			let HTTP_STATUS_OK = 200;
+			let HTTP_STATUS_NOT_FOUND = 404;
+			let HTTP_STATUS_SERVER_ERROR = 500;
+
+			let peticion_http;
+
+			function cargaContenido(url, metodo) {
+				if (window.XMLHttpRequest) {
+					peticion_http = new XMLHttpRequest();
+				} else {
+					alert("No tienes soporte para AJAX");
+				}
+
+				if (peticion_http) {
+					peticion_http.onreadystatechange = muestraContenido;
+					peticion_http.open(metodo, url, true);
+					peticion_http.send(null);
+				}
+			}
+
+			function muestraContenido() {
+				if (peticion_http.readyState === READY_STATE_COMPLETE) {
+					if (peticion_http.status === HTTP_STATUS_OK) {
+						alert(peticion_http.responseText);
+					}
+				}
+			}
+
+			function descargaArchivo() {
+				cargaContenido("http://localhost:8090/U7_asincrona/teoria/codigo/holamundo.txt", "GET");
+			}
+
+			window.onload = descargaArchivo;
+		</script>
+	</head>
+	<body></body>
+</html>

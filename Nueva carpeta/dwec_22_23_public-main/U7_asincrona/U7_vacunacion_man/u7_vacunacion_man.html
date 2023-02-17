@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script defer src="u7_vacunacion_man.js"></script>
+  <title>U7 - Vacunacion - Mañana</title>
+</head>
+
+<body>
+
+  <div>
+
+    <label for="select_comunidades">Comunidad: </label>
+    <select id="select_comunidades">
+
+    </select>
+
+    <label for="dosis_entregadas">D. Entregadas: </label>
+    <input type="number" id="dosis_entregadas">
+
+    <label for="dosis_admin">D. Admin: </label>
+    <input type="number" id="dosis_admin">
+
+    <label for="dosis_completa">D. Completa: </label>
+    <input type="number" id="dosis_completa">
+
+    <label for="por_entrega">% Entrega: </label>
+    <input type="number" id="por_entrega">
+
+    <label for="por_admin">% Admin: </label>
+    <input type="number" id="por_admin">
+
+    <label for="por_completo">% Completo: </label>
+    <input type="number" id="por_completo">
+
+    <button id="modificar_datos">Modificar datos</button>
+
+    <hr>
+    <div id="resultado"></div>
+    <hr>
+    <button id="cargar_xml">Cargar datos vacunación (XMLHttpRequest)</button>
+    <button id="cargar_fetch">Cargar datos vacunación (Fetch)</button>
+
+    <div id="tabla">
+
+    </div>
+
+  </div>
+
+</body>
+
+</html>

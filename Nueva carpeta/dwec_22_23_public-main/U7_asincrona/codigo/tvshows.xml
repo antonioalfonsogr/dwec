@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SERIES>
+  <SERIE>
+    <TITULO>Los soprano</TITULO>
+    <CADENA>HBO</CADENA>
+    <DIRECTOR>David Chase</DIRECTOR>
+    <ANYO>1999</ANYO>
+    <TERMINADA>Si</TERMINADA>
+  </SERIE>
+  <SERIE>
+    <TITULO>Hermanos de sangre</TITULO>
+    <CADENA>HBO</CADENA>
+    <DIRECTOR>Stephen Ambrose</DIRECTOR>
+    <ANYO>2001</ANYO>
+    <TERMINADA>Si</TERMINADA>
+  </SERIE>
+  <SERIE>
+    <TITULO>Fargo</TITULO>
+    <CADENA>FX</CADENA>
+    <DIRECTOR>Noah Hawley</DIRECTOR>
+    <ANYO>2014</ANYO>
+    <TERMINADA>No</TERMINADA>
+  </SERIE>
+</SERIES>
